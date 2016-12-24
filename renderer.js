@@ -99,6 +99,10 @@ exports.Renderer = function (context, config) {
 			}
 		});
 
+		if (index && index.__preRender) {
+			yield* index.__preRender(doc, data);
+		}
+
 		return mustache.to_html(mainTemplate, data, this.templates);
 	}
 

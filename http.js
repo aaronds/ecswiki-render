@@ -29,4 +29,6 @@ http.post = function (url, data, cb) {
 	);
 }
 
+http.request = request;
+
 module.exports = http;
