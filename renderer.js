@@ -106,6 +106,18 @@ exports.Renderer = function (context, config) {
 		return mustache.to_html(mainTemplate, data, this.templates);
 	}
 
+	this.end = function* (documents) {
+		var index = null;
+
+		if (this.modules.index) {
+			index = this.modules.index;
+		}
+
+		if (index.__end) {
+			yield* index.__end(documents);
+		}
+	}
+
 	function* loadFilesLike(pattern) {
 
 		return yield P.map(

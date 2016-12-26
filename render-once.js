@@ -43,5 +43,7 @@ P.coroutine(function* () {
 			yield* helpers.renderToFile(fs, renderer, config, doc);
 		})
 	);
+
+	yield* renderer.end(documents);
 })();
 

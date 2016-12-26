@@ -66,4 +66,6 @@ function* renderEverything() {
 		documents,
 		renderFile
 	);
+
+	yield* renderer.end(documents);
 }
